@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personal } from '../../data/cv'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const links = [
   { label: 'About',      href: '#about' },
@@ -12,6 +13,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const isMobile = useIsMobile(768)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -36,7 +38,7 @@ export default function Navbar() {
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
       }}
     >
-      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', overflow: 'hidden' }}>
+      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: isMobile ? '0 1rem' : '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: isMobile ? '52px' : '64px' }}>
         {/* Logo */}
         <a href="#hero" style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '1.1rem', color: 'var(--text)', letterSpacing: '-0.02em', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <span style={{ color: 'var(--accent)' }}>{'<'}</span>
@@ -45,7 +47,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }} className="hidden md:flex">
+        <ul style={{ display: isMobile ? 'none' : 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}>
           {links.map(link => (
             <li key={link.href}>
               <a
@@ -60,10 +62,9 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
+        {/* CTA — desktop only */}
+        {!isMobile && <a
           href={`mailto:${personal.email}`}
-          className="hidden md:inline-flex"
           style={{
             fontFamily: 'var(--font-body)',
             fontSize: '0.85rem',
@@ -78,11 +79,10 @@ export default function Navbar() {
           onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
         >
           Hire me
-        </a>
+        </a>}
 
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden"
+        {isMobile && <button
           onClick={() => setMenuOpen(v => !v)}
           aria-label="Toggle menu"
           style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text)', padding: '0.25rem' }}
@@ -101,7 +101,7 @@ export default function Navbar() {
               </>
             )}
           </svg>
-        </button>
+        </button>}
       </nav>
 
       {/* Mobile menu */}
