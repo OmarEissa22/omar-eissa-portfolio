@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { bio, skills, education, type Skill } from '../../data/cv'
+import { useIsMobile } from '../../hooks/useIsMobile'
 
 const categoryColors: Record<Skill['category'], { bg: string; border: string; text: string; label: string }> = {
   ai:       { bg: 'rgba(37,99,235,0.12)',   border: 'rgba(37,99,235,0.4)',   text: '#60A5FA', label: 'AI & ML' },
@@ -20,10 +21,23 @@ const itemVariants = {
 }
 
 export default function About() {
-  const [hovered, setHovered] = useState<Skill | null>(null)
+  const [active, setActive] = useState<Skill | null>(null)
+  const isMobile = useIsMobile()
+
+  function handleSkillInteract(skill: Skill) {
+    if (isMobile) {
+      setActive(prev => prev?.name === skill.name ? null : skill)
+    } else {
+      setActive(skill)
+    }
+  }
+
+  function handleSkillLeave() {
+    if (!isMobile) setActive(null)
+  }
 
   return (
-    <section id="about" style={{ padding: 'var(--section-py) 1.5rem' }}>
+    <section id="about" style={{ padding: 'var(--section-py) var(--section-px)' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Section header */}
         <motion.div
@@ -31,7 +45,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          style={{ marginBottom: '3.5rem' }}
+          style={{ marginBottom: isMobile ? '2rem' : '3.5rem' }}
         >
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--accent)', marginBottom: '0.5rem', letterSpacing: '0.1em' }}>
             01 / about
@@ -41,15 +55,20 @@ export default function About() {
           </h2>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'start' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: `repeat(auto-fit, minmax(min(300px, 100%), 1fr))`,
+          gap: isMobile ? '2rem' : '3rem',
+          alignItems: 'start',
+        }}>
           {/* Bio + Education */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5 }}
           >
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--text-muted)', whiteSpace: 'pre-line', marginBottom: '2.5rem' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: 1.75, color: 'var(--text-muted)', whiteSpace: 'pre-line', marginBottom: '2rem' }}>
               {bio}
             </p>
 
@@ -58,7 +77,7 @@ export default function About() {
               background: 'var(--surface)',
               border: '1px solid var(--border)',
               borderRadius: '10px',
-              padding: '1.25rem 1.5rem',
+              padding: isMobile ? '1rem 1.1rem' : '1.25rem 1.5rem',
             }}>
               <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-subtle)', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
                 EDUCATION
@@ -74,9 +93,9 @@ export default function About() {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                 {education.highlights.map(h => (
-                  <div key={h.module} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div key={h.module} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
                     <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--text-muted)' }}>{h.module}</span>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#34D399', fontWeight: 500 }}>{h.grade}</span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: '#34D399', fontWeight: 500, flexShrink: 0 }}>{h.grade}</span>
                   </div>
                 ))}
               </div>
@@ -85,13 +104,13 @@ export default function About() {
 
           {/* Tech stack grid */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: isMobile ? 0 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-subtle)', letterSpacing: '0.08em', marginBottom: '1rem' }}>
-              TECH STACK — hover a skill to see where I used it
+              TECH STACK — {isMobile ? 'tap' : 'hover'} a skill to see where I used it
             </p>
 
             {/* Category legend */}
@@ -119,29 +138,31 @@ export default function About() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
-              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem' }}
             >
               {skills.map(skill => {
                 const colors = categoryColors[skill.category]
-                const isHovered = hovered?.name === skill.name
+                const isActive = active?.name === skill.name
                 return (
                   <motion.button
                     key={skill.name}
                     variants={itemVariants}
-                    onMouseEnter={() => setHovered(skill)}
-                    onMouseLeave={() => setHovered(null)}
+                    onMouseEnter={() => !isMobile && handleSkillInteract(skill)}
+                    onMouseLeave={handleSkillLeave}
+                    onClick={() => isMobile && handleSkillInteract(skill)}
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '0.82rem',
-                      padding: '0.35rem 0.75rem',
+                      fontSize: isMobile ? '0.78rem' : '0.82rem',
+                      padding: isMobile ? '0.4rem 0.7rem' : '0.35rem 0.75rem',
                       borderRadius: '6px',
-                      border: `1px solid ${isHovered ? colors.border : 'var(--border)'}`,
-                      background: isHovered ? colors.bg : 'var(--surface)',
-                      color: isHovered ? colors.text : 'var(--text-muted)',
-                      cursor: 'default',
+                      border: `1px solid ${isActive ? colors.border : 'var(--border)'}`,
+                      background: isActive ? colors.bg : 'var(--surface)',
+                      color: isActive ? colors.text : 'var(--text-muted)',
+                      cursor: isMobile ? 'pointer' : 'default',
                       transition: 'all 0.18s ease',
-                      transform: isHovered ? 'translateY(-2px)' : 'none',
-                      boxShadow: isHovered ? `0 4px 12px ${colors.bg}` : 'none',
+                      transform: isActive ? 'translateY(-2px)' : 'none',
+                      boxShadow: isActive ? `0 4px 12px ${colors.bg}` : 'none',
+                      WebkitTapHighlightColor: 'transparent',
                     }}
                   >
                     {skill.name}
@@ -150,9 +171,9 @@ export default function About() {
               })}
             </motion.div>
 
-            {/* Hover tooltip */}
+            {/* Active tooltip — always visible if active */}
             <motion.div
-              animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 4 }}
+              animate={{ opacity: active ? 1 : 0, y: active ? 0 : 4 }}
               transition={{ duration: 0.2 }}
               style={{
                 marginTop: '1.25rem',
@@ -164,12 +185,12 @@ export default function About() {
                 pointerEvents: 'none',
               }}
             >
-              {hovered && (
+              {active && (
                 <>
                   <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-subtle)', marginBottom: '0.4rem', letterSpacing: '0.06em' }}>
                     USED IN
                   </p>
-                  {hovered.usedIn.map(u => (
+                  {active.usedIn.map(u => (
                     <p key={u} style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>
                       → {u}
                     </p>

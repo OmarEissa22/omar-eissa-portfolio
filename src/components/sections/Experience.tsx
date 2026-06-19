@@ -3,7 +3,7 @@ import { experience } from '../../data/cv'
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ padding: 'var(--section-py) 1.5rem' }}>
+    <section id="experience" style={{ padding: 'var(--section-py) var(--section-px)' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
         {/* Section header */}
         <motion.div

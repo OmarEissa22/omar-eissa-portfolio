@@ -64,10 +64,12 @@ export default function ChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
             style={{
-              position: 'absolute',
-              bottom: '4.5rem',
-              right: 0,
+              position: 'fixed',
+              bottom: '5rem',
+              right: '1rem',
+              left: 'auto',
               width: 'min(380px, calc(100vw - 2rem))',
+              maxHeight: 'calc(100svh - 7rem)',
               background: 'var(--surface)',
               border: '1px solid var(--border)',
               borderRadius: '14px',
@@ -108,7 +110,7 @@ export default function ChatWidget() {
               flex: 1,
               overflowY: 'auto',
               padding: '1rem',
-              maxHeight: '340px',
+              maxHeight: 'min(340px, 50svh)',
               display: 'flex',
               flexDirection: 'column',
               gap: '0.75rem',

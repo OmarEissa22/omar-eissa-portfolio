@@ -28,6 +28,14 @@
 
   /* Spacing */
   --section-py: 6rem;
+  --section-px: 1.5rem;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --section-py: 3.5rem;
+    --section-px: 1rem;
+  }
 }
 
 /* Base reset */

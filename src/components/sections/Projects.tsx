@@ -3,7 +3,7 @@ import { projects } from '../../data/cv'
 
 export default function Projects() {
   return (
-    <section id="projects" style={{ padding: 'var(--section-py) 1.5rem', background: 'var(--surface)' }}>
+    <section id="projects" style={{ padding: 'var(--section-py) var(--section-px)', background: 'var(--surface)' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Section header */}
         <motion.div
@@ -33,7 +33,7 @@ export default function Projects() {
                 background: 'var(--bg)',
                 border: `1px solid ${project.featured ? 'rgba(37,99,235,0.4)' : 'var(--border)'}`,
                 borderRadius: '12px',
-                padding: project.featured ? '2rem' : '1.5rem',
+                padding: 'clamp(1.1rem, 4vw, 2rem)',
                 position: 'relative',
                 overflow: 'hidden',
                 boxShadow: project.featured ? 'var(--glow)' : 'none',
