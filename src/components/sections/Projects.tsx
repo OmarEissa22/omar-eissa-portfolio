@@ -3,7 +3,7 @@ import { projects } from '../../data/cv'
 
 export default function Projects() {
   return (
-    <section id="projects" style={{ padding: 'var(--section-py) var(--section-px)', background: 'var(--surface)' }}>
+    <section id="projects" style={{ padding: 'var(--section-py) var(--section-px)', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Section header */}
         <motion.div

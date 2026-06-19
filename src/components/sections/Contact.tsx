@@ -10,7 +10,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ padding: 'var(--section-py) var(--section-px)', background: 'var(--surface)' }}>
+    <section id="contact" style={{ padding: 'var(--section-py) var(--section-px)', background: 'var(--bg)' }}>
       <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
