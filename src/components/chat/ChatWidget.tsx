@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { sendMessage, type Message } from '../../lib/anthropic'
+import { sendMessage, type Message } from '../../lib/openai'
 
 const WELCOME = "Hi! I'm Omar's portfolio assistant. Ask me anything about his skills, projects, experience, or background — I'm here to help recruiters and hiring managers get quick answers."
 
@@ -91,7 +91,7 @@ export default function ChatWidget() {
                   Ask about Omar
                 </p>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent-glow)', margin: 0 }}>
-                  ● Powered by Claude
+                  ● Powered by GPT-4o mini
                 </p>
               </div>
               <button
