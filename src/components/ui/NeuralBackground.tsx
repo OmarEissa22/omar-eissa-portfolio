@@ -43,7 +43,7 @@ function Network({ nodeCount }: { nodeCount: number }) {
   }, [nodes, nodeCount])
 
   // Build connections
-  const { linePositions, lineCount } = useMemo(() => {
+  const { linePositions } = useMemo(() => {
     const pos: number[] = []
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
@@ -55,7 +55,7 @@ function Network({ nodeCount }: { nodeCount: number }) {
         }
       }
     }
-    return { linePositions: new Float32Array(pos), lineCount: pos.length / 3 }
+    return { linePositions: new Float32Array(pos) }
   }, [nodes])
 
   // Working positions for animation (mutated each frame)
@@ -96,9 +96,7 @@ function Network({ nodeCount }: { nodeCount: number }) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            array={linePositions}
-            itemSize={3}
-            count={lineCount}
+            args={[linePositions, 3]}
           />
         </bufferGeometry>
         <lineBasicMaterial color="#3B82F6" transparent opacity={0.12} />
@@ -109,9 +107,7 @@ function Network({ nodeCount }: { nodeCount: number }) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            array={workingPos}
-            itemSize={3}
-            count={nodeCount}
+            args={[workingPos, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
@@ -128,9 +124,7 @@ function Network({ nodeCount }: { nodeCount: number }) {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            array={workingPos}
-            itemSize={3}
-            count={nodeCount}
+            args={[workingPos, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
