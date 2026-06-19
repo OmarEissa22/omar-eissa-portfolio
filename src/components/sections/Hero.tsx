@@ -1,10 +1,8 @@
-import { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { personal, roles } from '../../data/cv'
 import { useTypewriter } from '../../hooks/useTypewriter'
 import { useIsMobile } from '../../hooks/useIsMobile'
-
-const NeuralBackground = lazy(() => import('../ui/NeuralBackground'))
+import NeuralVortex from '../ui/NeuralVortex'
 
 export default function Hero() {
   const typed = useTypewriter(roles)
@@ -23,10 +21,8 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* 3D neural network background — lazy loaded so it doesn't block paint */}
-      <Suspense fallback={null}>
-        <NeuralBackground isMobile={isMobile} />
-      </Suspense>
+      {/* WebGL neural vortex — responds to mouse/touch */}
+      <NeuralVortex />
 
       {/* Subtle vignette so the terminal card pops */}
       <div style={{
