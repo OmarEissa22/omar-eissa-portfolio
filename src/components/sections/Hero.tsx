@@ -66,13 +66,14 @@ export default function Hero() {
 
           {/* Terminal body */}
           <div style={{ padding: isMobile ? '1.25rem 1.1rem 1.75rem' : '2rem 2rem 2.5rem' }}>
+            {/* git blame command */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
               style={{ fontFamily: 'var(--font-mono)', fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1.25rem' }}
             >
-              <span style={{ color: 'var(--accent)' }}>$ </span>whoami
+              <span style={{ color: 'var(--accent)' }}>$ </span>git blame omar-eissa
             </motion.p>
 
             <motion.h1
@@ -101,7 +102,7 @@ export default function Hero() {
                 fontFamily: 'var(--font-mono)',
                 fontSize: isMobile ? 'clamp(0.82rem, 3.5vw, 1rem)' : 'clamp(1rem, 2.5vw, 1.3rem)',
                 color: 'var(--accent-glow)',
-                marginBottom: '1.5rem',
+                marginBottom: '1.75rem',
                 minHeight: '1.8rem',
                 display: 'flex',
                 alignItems: 'center',
@@ -126,45 +127,42 @@ export default function Hero() {
               <span style={{ color: 'var(--accent-glow)', flexShrink: 0 }}>&quot;</span>
             </motion.div>
 
-            {/* Status badges */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
-              style={{
-                display: 'flex',
-                flexDirection: isMobile ? 'column' : 'row',
-                flexWrap: 'wrap',
-                gap: isMobile ? '0.5rem' : '1rem',
-                marginBottom: '2rem',
-              }}
-            >
+            {/* git blame lines */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '2rem' }}>
               {[
-                { icon: '📍', text: isMobile ? 'Huddersfield, UK · open to relocation' : `${personal.location} — ${personal.locationNote}` },
-                { icon: '🎓', text: 'Graduating July 2026' },
-                { icon: '🇬🇧', text: 'Right to work in UK' },
-              ].map(item => (
-                <span
-                  key={item.text}
+                { hash: 'a3f2c9e', time: '22 yrs ago', msg: 'initialized: Cairo, Egypt 🇪🇬', delay: 0.9 },
+                { hash: 'b8d4f1c', time: '2022',       msg: 'enrolled: BSc CS @ Huddersfield 🎓', delay: 1.05 },
+                { hash: 'e7c2a08', time: 'present',    msg: 'graduation pending... building AI in the meantime ⚡', delay: 1.2 },
+              ].map(line => (
+                <motion.div
+                  key={line.hash}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: line.delay, duration: 0.4 }}
                   style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.78rem',
-                    color: 'var(--text-muted)',
+                    fontSize: isMobile ? '0.72rem' : '0.8rem',
                     display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
+                    alignItems: 'baseline',
+                    gap: isMobile ? '0.4rem' : '0.65rem',
+                    flexWrap: isMobile ? 'wrap' : 'nowrap',
+                    lineHeight: 1.5,
                   }}
                 >
-                  {item.icon} {item.text}
-                </span>
+                  <span style={{ color: 'var(--accent)', flexShrink: 0 }}>{line.hash}</span>
+                  <span style={{ color: 'var(--text-subtle)', flexShrink: 0 }}>
+                    (Omar Eissa, {line.time})
+                  </span>
+                  <span style={{ color: 'var(--text-muted)' }}>— {line.msg}</span>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.4 }}
+              transition={{ delay: 1.4, duration: 0.4 }}
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
@@ -214,7 +212,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
+          transition={{ delay: 1.8 }}
           style={{ display: 'flex', justifyContent: 'center', marginTop: isMobile ? '2rem' : '3rem' }}
         >
           <motion.div
