@@ -16,9 +16,13 @@ export default function Navbar() {
   const isMobile = useIsMobile(768)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const root = document.getElementById('root') ?? window
+    const onScroll = () => {
+      const scrollTop = root instanceof Element ? root.scrollTop : root.scrollY
+      setScrolled(scrollTop > 40)
+    }
+    root.addEventListener('scroll', onScroll, { passive: true })
+    return () => root.removeEventListener('scroll', onScroll)
   }, [])
 
   return (

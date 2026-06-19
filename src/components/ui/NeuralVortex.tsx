@@ -136,7 +136,8 @@ export default function NeuralVortex() {
           pointer.current.x / window.innerWidth,
           1 - pointer.current.y / window.innerHeight,
         )
-        gl.uniform1f(uScroll, window.pageYOffset / (2 * window.innerHeight))
+        const scrollEl = document.getElementById('root')
+        gl.uniform1f(uScroll, (scrollEl ? scrollEl.scrollTop : window.pageYOffset) / (2 * window.innerHeight))
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
       }
       rafRef.current = requestAnimationFrame(render)

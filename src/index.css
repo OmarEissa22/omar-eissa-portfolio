@@ -42,8 +42,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
   color-scheme: dark;
+  height: 100%;
 }
 
 body {
@@ -55,11 +55,17 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
+/* Scroll happens here, not on body — fixes iOS Safari position:fixed drift */
 #root {
-  min-height: 100svh;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
 }

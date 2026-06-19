@@ -54,7 +54,7 @@ export default function ChatWidget() {
   }
 
   return (
-    <div style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 100 }}>
+    <div style={{ position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 9999 }}>
       {/* Chat panel */}
       <AnimatePresence>
         {open && (
@@ -64,10 +64,9 @@ export default function ChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
             style={{
-              position: 'fixed',
-              bottom: '5rem',
-              right: '1rem',
-              left: 'auto',
+              position: 'absolute',
+              bottom: '4.5rem',
+              right: 0,
               width: 'min(380px, calc(100vw - 2rem))',
               maxHeight: 'calc(100svh - 7rem)',
               background: 'var(--surface)',
@@ -115,7 +114,6 @@ export default function ChatWidget() {
               flexDirection: 'column',
               gap: '0.75rem',
             }}>
-              {/* Welcome message */}
               <div style={{
                 alignSelf: 'flex-start',
                 maxWidth: '85%',
@@ -224,11 +222,9 @@ export default function ChatWidget() {
         )}
       </AnimatePresence>
 
-      {/* FAB button */}
-      <motion.button
+      {/* FAB */}
+      <button
         onClick={() => setOpen(v => !v)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
         aria-label="Open chat"
         style={{
           width: '56px',
@@ -241,12 +237,13 @@ export default function ChatWidget() {
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: open ? 'var(--shadow-md)' : 'var(--glow)',
-          transition: 'background 0.2s, box-shadow 0.2s',
           fontSize: '1.4rem',
+          touchAction: 'manipulation',
+          WebkitTapHighlightColor: 'transparent',
         }}
       >
         {open ? '✕' : '💬'}
-      </motion.button>
+      </button>
 
       <style>{`
         @keyframes bounce {
