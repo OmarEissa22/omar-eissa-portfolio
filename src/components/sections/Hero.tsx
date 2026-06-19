@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { personal, roles } from '../../data/cv'
 import { useTypewriter } from '../../hooks/useTypewriter'
 import { useIsMobile } from '../../hooks/useIsMobile'
+import NeuralBackground from '../ui/NeuralBackground'
 
 export default function Hero() {
   const typed = useTypewriter(roles)
@@ -20,20 +21,19 @@ export default function Hero() {
         overflow: 'hidden',
       }}
     >
-      {/* Aurora background */}
-      <div className="aurora-bg" />
+      {/* 3D neural network background */}
+      <NeuralBackground isMobile={isMobile} />
 
-      {/* Subtle grid overlay */}
+      {/* Subtle vignette so the terminal card pops */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: 'linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-        opacity: 0.25,
+        background: 'radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, var(--bg) 100%)',
         pointerEvents: 'none',
+        zIndex: 0,
       }} />
 
-      <div style={{ maxWidth: '800px', width: '100%', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '800px', width: '100%', position: 'relative', zIndex: 2 }}>
         {/* Terminal window */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
