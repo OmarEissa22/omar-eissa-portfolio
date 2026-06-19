@@ -36,12 +36,12 @@ export default function Navbar() {
         borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
       }}
     >
-      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+      <nav style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px', overflow: 'hidden' }}>
         {/* Logo */}
-        <a href="#hero" style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '1.1rem', color: 'var(--text)', letterSpacing: '-0.02em' }}>
+        <a href="#hero" style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '1.1rem', color: 'var(--text)', letterSpacing: '-0.02em', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <span style={{ color: 'var(--accent)' }}>{'<'}</span>
-          OE
-          <span style={{ color: 'var(--accent)' }}>{' />'}</span>
+          {'OE'}
+          <span style={{ color: 'var(--accent)' }}>{'/>'}</span>
         </a>
 
         {/* Desktop links */}
