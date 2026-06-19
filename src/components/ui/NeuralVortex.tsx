@@ -38,7 +38,7 @@ export default function NeuralVortex() {
         vec2 sine_acc = vec2(0.);
         vec2 res = vec2(0.);
         float scale = 8.;
-        for (int j = 0; j < 15; j++) {
+        for (int j = 0; j < 10; j++) {
           uv = rotate(uv, 1.);
           sine_acc = rotate(sine_acc, 1.);
           vec2 layer = uv * scale + float(j) + sine_acc - t;
@@ -117,7 +117,7 @@ export default function NeuralVortex() {
     const uScroll    = gl.getUniformLocation(program, 'u_scroll_progress')
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio, 2)
+      const dpr = Math.min(window.devicePixelRatio, 1.5)
       canvas.width  = window.innerWidth  * dpr
       canvas.height = window.innerHeight * dpr
       gl.viewport(0, 0, canvas.width, canvas.height)
@@ -127,16 +127,18 @@ export default function NeuralVortex() {
     window.addEventListener('resize', resize)
 
     const render = () => {
-      pointer.current.x += (pointer.current.tX - pointer.current.x) * 0.2
-      pointer.current.y += (pointer.current.tY - pointer.current.y) * 0.2
+      if (!document.hidden) {
+        pointer.current.x += (pointer.current.tX - pointer.current.x) * 0.2
+        pointer.current.y += (pointer.current.tY - pointer.current.y) * 0.2
 
-      gl.uniform1f(uTime, performance.now())
-      gl.uniform2f(uPointer,
-        pointer.current.x / window.innerWidth,
-        1 - pointer.current.y / window.innerHeight,
-      )
-      gl.uniform1f(uScroll, window.pageYOffset / (2 * window.innerHeight))
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+        gl.uniform1f(uTime, performance.now())
+        gl.uniform2f(uPointer,
+          pointer.current.x / window.innerWidth,
+          1 - pointer.current.y / window.innerHeight,
+        )
+        gl.uniform1f(uScroll, window.pageYOffset / (2 * window.innerHeight))
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+      }
       rafRef.current = requestAnimationFrame(render)
     }
     render()
