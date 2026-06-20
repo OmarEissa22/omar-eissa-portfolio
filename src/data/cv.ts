@@ -5,7 +5,7 @@ export const personal = {
   phone: '07450 879519',
   location: 'Huddersfield, UK',
   locationNote: 'Open to UK-wide relocation',
-  linkedin: 'https://www.linkedin.com/in/omar-eissa-/',
+  linkedin: 'https://www.linkedin.com/in/omar-eissa22',
   github: 'https://github.com/OmarEissa21',
   rightToWork: 'Graduate Route visa upon graduation (July 2026) — authorised to work in the UK',
   languages: ['English (fluent)', 'Arabic (native)'],
@@ -178,7 +178,7 @@ He is bilingual (English and Arabic), originally from Egypt, currently based in 
 CONTACT:
 Email: omareissa2274@gmail.com | Phone: 07450 879519
 GitHub: https://github.com/OmarEissa22
-LinkedIn: https://www.linkedin.com/in/omar-eissa-/
+LinkedIn: https://www.linkedin.com/in/omar-eissa22
 Location: Huddersfield, UK — open to UK-wide relocation
 
 TECHNICAL SKILLS (confident level in all of these):
