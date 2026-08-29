@@ -2,115 +2,156 @@ export const personal = {
   name: 'Omar Eissa',
   fullName: 'Omar Sameh Eissa',
   email: 'omareissa2274@gmail.com',
-  phone: '07450 879519',
+  phone: '07727 808240',
   location: 'Huddersfield, UK',
-  locationNote: 'Open to UK-wide relocation',
+  locationNote: 'Open to London and UK-wide relocation',
   linkedin: 'https://www.linkedin.com/in/omar-eissa22',
-  github: 'https://github.com/OmarEissa21',
-  rightToWork: 'Graduate Route visa upon graduation (July 2026) — authorised to work in the UK',
+  github: 'https://github.com/OmarEissa22',
+  rightToWork: 'Graduate Route application submitted July 2026, decision pending. Permitted to work on a PAYE basis now; two years of full UK working rights with no sponsorship required once granted.',
   languages: ['English (fluent)', 'Arabic (native)'],
 }
 
 export const roles = [
-  'AI Engineer',
-  'Full-Stack TypeScript Developer',
-  'Data Engineer',
-  'CS Student @ University of Huddersfield',
+  'Data Analyst',
+  'Business Intelligence Analyst',
+  'Analytics & Data Engineering',
+  'First Class Computer Science Graduate',
 ]
 
-export const bio = `First-class Computer Science student at the University of Huddersfield, graduating July 2026.
-I specialise in AI engineering, full-stack TypeScript development, and data engineering — building systems
-where language models do real, structured work. My final year project, CareQueue, is an end-to-end
-AI-powered GP triage and booking system built with GPT-4o and LangChain. I also spent a full year
-as a research assistant designing Python data pipelines on real-world wearable health data.`
+export const bio = `Computer Science graduate (First Class Honours, 86%) working in data and analytics.
+
+My strongest work has been the unglamorous middle of the job: extraction, cleaning, quality checks, and
+then getting a finding in front of someone who can act on it. On a year-long placement I inherited a data
+pipeline producing systematically inaccurate outputs that nobody had flagged, because the numbers looked
+plausible. I traced it to root cause and rebuilt it; that data now supports published research.
+
+I build cohort models and forecasts, validate them by backtesting rather than by inspection, and report
+the result honestly when the model is wrong.`
 
 export interface Skill {
   name: string
-  category: 'ai' | 'frontend' | 'backend' | 'data' | 'infra'
+  category: 'sql' | 'analysis' | 'viz' | 'engineering' | 'other'
   usedIn: string[]
 }
 
 export const skills: Skill[] = [
-  // AI & ML
-  { name: 'GPT-4o',        category: 'ai',       usedIn: ['CareQueue — triage classifier & dual-mode chatbot'] },
-  { name: 'LangChain',     category: 'ai',       usedIn: ['CareQueue — tool-calling agents grounded in live DB data'] },
-  { name: 'OpenAI API',    category: 'ai',       usedIn: ['CareQueue — structured output via response_format:json_schema'] },
-  { name: 'TensorFlow',    category: 'ai',       usedIn: ['Hand-Washing Classifier — MobileNetV2 transfer learning'] },
-  { name: 'MobileNetV2',   category: 'ai',       usedIn: ['Hand-Washing Classifier — pretrained backbone, fine-tuned'] },
-  { name: 'scikit-learn',  category: 'ai',       usedIn: ['Hand-Washing Classifier — stratified splits, class weighting'] },
-  { name: 'Cleanlab',      category: 'ai',       usedIn: ['Hand-Washing Classifier — label error detection, removed 200 mislabelled samples'] },
-  // Frontend
-  { name: 'React',         category: 'frontend', usedIn: ['CareQueue frontend', 'AI4SW mobile app (React Native)'] },
-  { name: 'TypeScript',    category: 'frontend', usedIn: ['CareQueue — entire stack end-to-end'] },
-  { name: 'React Native',  category: 'frontend', usedIn: ['AI4SW placement — maintained live app for research participants'] },
-  { name: 'Vite',          category: 'frontend', usedIn: ['CareQueue frontend build tooling'] },
-  // Backend
-  { name: 'Node.js',       category: 'backend',  usedIn: ['CareQueue — Express server, tRPC API layer'] },
-  { name: 'tRPC',          category: 'backend',  usedIn: ['CareQueue — type-safe end-to-end API with JWT middleware'] },
-  { name: 'Supabase',      category: 'backend',  usedIn: ['CareQueue — PostgreSQL, Auth, Storage'] },
-  { name: 'Drizzle ORM',   category: 'backend',  usedIn: ['CareQueue — type-safe DB queries, atomic slot reservation'] },
-  // Data
-  { name: 'Python',        category: 'data',     usedIn: ['AI4SW — data pipelines', 'Hand-Washing Classifier', 'Crédit Agricole — risk analysis'] },
-  { name: 'pandas',        category: 'data',     usedIn: ['AI4SW — multi-year Apple Health XML + Firebase JSON processing'] },
-  { name: 'NumPy',         category: 'data',     usedIn: ['AI4SW — time-series feature extraction'] },
-  // Infra
-  { name: 'Docker',        category: 'infra',    usedIn: ['CareQueue — containerised deployment'] },
-  { name: 'AWS',           category: 'infra',    usedIn: ['CareQueue — cloud infrastructure'] },
-  { name: 'Git / GitHub',  category: 'infra',    usedIn: ['All projects — version control & collaboration'] },
-  { name: 'Firebase',      category: 'infra',    usedIn: ['AI4SW — mobile app backend & data collection'] },
+  // SQL & Databases
+  { name: 'SQL',                    category: 'sql',         usedIn: ['CareQueue — queries, views and constraints', 'Relational Databases module — 81%'] },
+  { name: 'PostgreSQL',             category: 'sql',         usedIn: ['CareQueue — full relational schema with atomic slot reservation'] },
+  { name: 'Relational Schema Design', category: 'sql',       usedIn: ['CareQueue — constraints preventing double-booking under concurrent access'] },
+  { name: 'Supabase',               category: 'sql',         usedIn: ['CareQueue — PostgreSQL, Auth, Storage'] },
+  { name: 'Firebase',               category: 'sql',         usedIn: ['AI4SW — research data collection backend'] },
+
+  // Analysis & Statistics
+  { name: 'Python',                 category: 'analysis',    usedIn: ['AI4SW — data pipelines', 'Credit Agricole — auto-loan risk segmentation', 'Fintech case study — cohort forecasting'] },
+  { name: 'pandas',                 category: 'analysis',    usedIn: ['AI4SW — multi-year Apple Health XML and Firebase JSON processing', 'Cohort modelling'] },
+  { name: 'NumPy',                  category: 'analysis',    usedIn: ['AI4SW — time-series feature extraction'] },
+  { name: 'Cohort Analysis',        category: 'analysis',    usedIn: ['Fintech case study — twelve-month adoption forecast'] },
+  { name: 'Forecasting & Backtesting', category: 'analysis', usedIn: ['Fintech case study — backtested from an earlier cutoff; the model ran 24% low and I reported it'] },
+  { name: 'Customer Segmentation',  category: 'analysis',    usedIn: ['Credit Agricole — three years of auto-loan portfolio data into risk categories'] },
+  { name: 'Funnel Analysis',        category: 'analysis',    usedIn: ['Fintech case study — conversion funnel alongside the forecast'] },
+  { name: 'Feature Engineering',    category: 'analysis',    usedIn: ['AI4SW — heart rate, sleep and activity signals joined to daily mood check-ins'] },
+  { name: 'Anomaly Detection',      category: 'analysis',    usedIn: ['AI4SW — wearable health time-series'] },
+  { name: 'scikit-learn',           category: 'analysis',    usedIn: ['Hand-Washing Classifier — stratified splits, class weighting'] },
+
+  // Reporting & Visualisation
+  { name: 'Power BI',               category: 'viz',         usedIn: ['AI4SW — reporting on wellbeing study data'] },
+  { name: 'Tableau',                category: 'viz',         usedIn: ['AI4SW — reporting on wellbeing study data'] },
+  { name: 'Matplotlib',             category: 'viz',         usedIn: ['Credit Agricole — risk segmentation visuals for senior management'] },
+  { name: 'Excel',                  category: 'viz',         usedIn: ['Credit Agricole — summary tables management already read'] },
+
+  // Data Engineering
+  { name: 'ETL & Pipeline Design',  category: 'engineering', usedIn: ['AI4SW — rebuilt a Firebase to CSV pipeline from root cause'] },
+  { name: 'Data Quality & Validation', category: 'engineering', usedIn: ['AI4SW — found systematically inaccurate outputs nobody had flagged', 'Hand-Washing Classifier — label error detection'] },
+  { name: 'XML / JSON / CSV',       category: 'engineering', usedIn: ['AI4SW — multi-year Apple Health exports and Firebase logs'] },
+  { name: 'Time-Series Aggregation', category: 'engineering', usedIn: ['AI4SW — daily and hourly structured datasets'] },
+
+  // Other tooling
+  { name: 'TypeScript',             category: 'other',       usedIn: ['CareQueue — full stack'] },
+  { name: 'React',                  category: 'other',       usedIn: ['CareQueue frontend', 'AI4SW mobile app (React Native)'] },
+  { name: 'Git / GitHub',           category: 'other',       usedIn: ['All projects'] },
+  { name: 'GPT-4o / LangChain',     category: 'other',       usedIn: ['CareQueue — structured output with JSON schema enforcement'] },
 ]
 
-export const projects = [
+export interface Project {
+  id: string
+  title: string
+  subtitle: string
+  type: string
+  period: string
+  featured: boolean
+  tags: string[]
+  summary: string
+  bullets: string[]
+  github?: string
+}
+
+export const projects: Project[] = [
+  {
+    id: 'forecasting',
+    title: 'Customer Adoption Forecasting',
+    subtitle: 'Cohort Modelling, Backtesting & Funnel Analysis',
+    type: 'Fintech Analytics Case Study',
+    period: '2026',
+    featured: true,
+    tags: ['Python', 'pandas', 'Cohort Analysis', 'Backtesting', 'Funnel Analysis'],
+    summary: 'A twelve-month customer adoption and asset-holdings forecast for an investment product — built as a cohort model rather than a time series, then stress-tested against what actually happened.',
+    bullets: [
+      'Chose a cohort model over fitting a time series, because the observable series was distorted by how the sample was constructed and a trend model would have learned the artefact as real. An ARIMA fit on the same data returned roughly one third of the cohort figure, confidently.',
+      'Backtested the forecast by rebuilding it from an earlier information cutoff and comparing against realised outcomes. It ran consistently 24% low. I reported the miss and its direction rather than presenting a cleaner number.',
+      'Caught a methodological flaw in my own driver analysis partway through: unequal observation windows were inflating every effect by roughly threefold and, more importantly, changing which variable ranked as the strongest driver.',
+      'Delivered conversion funnel analysis and asset class decomposition alongside the forecast, and presented the full analysis including its limitations to two senior analysts.',
+    ],
+  },
   {
     id: 'carequeue',
     title: 'CareQueue',
-    subtitle: 'AI-Powered GP Triage & Booking System',
+    subtitle: 'Relational Schema & AI Triage Booking System',
     type: 'Final Year Project',
     period: 'Sep 2025 – May 2026',
     featured: true,
-    tags: ['TypeScript', 'GPT-4o', 'LangChain', 'tRPC', 'Supabase', 'React', 'Drizzle ORM'],
-    summary: 'End-to-end web application where patients describe symptoms, get triaged by GPT-4o for urgency, routed to the right clinician, and automatically booked — the entire pipeline runs without human intervention.',
+    tags: ['PostgreSQL', 'SQL', 'TypeScript', 'GPT-4o', 'tRPC', 'React'],
+    summary: 'End-to-end system where patients describe symptoms, get triaged for urgency, routed to the right clinician and automatically booked. The hard part was correctness under concurrency, not the model.',
     bullets: [
-      'Engineered a multi-stage AI triage: keyword/regex pre-screen → GPT-4o classifier → LangChain tool-calling agent grounded in live patient data via four custom DB-query tools, with all outputs enforced via OpenAI structured output.',
-      'Dual-mode LangChain conversational assistant: patient-facing chatbot (appointments, triage history, available slots) and admin chatbot (system-wide stats, audit log) — both with hard-enforced boundaries against medical advice and prompt injection.',
-      'Built for correctness and security: atomic slot reservation prevents race conditions; JWT-verified RBAC at the tRPC middleware layer; append-only audit log across eight system actions.',
-      'Achieved 10/10 pass rate across functional test cases; validated by 7 users including health domain experts.',
+      'Designed the full relational schema in PostgreSQL, including atomic slot reservation that prevents two patients being booked into the same appointment under concurrent access, and constraints that hold when the system is under load.',
+      'Built an append-only audit log spanning eight distinct system actions, so every state change in the booking flow stays traceable after the fact.',
+      'Multi-stage triage: keyword pre-screen, then a GPT-4o classifier, then a tool-calling agent grounded in live data through four custom database-query tools — with every model output constrained by JSON schema enforcement, on the assumption that model output cannot be trusted unchecked.',
+      'Validated through structured testing rather than inspection: 10 of 10 functional test cases passed, with user testing across 7 participants including health domain experts.',
     ],
-    github: 'https://github.com/OmarEissa21',
+    github: 'https://github.com/OmarEissa22/ai-gp-booking-system',
   },
   {
     id: 'handwash',
     title: 'Hand-Washing Stage Classifier',
-    subtitle: 'CNN Image Classification',
+    subtitle: 'Data Quality Before Model Tuning',
     type: 'University Module Project',
     period: 'Sep 2025 – Jan 2026',
     featured: false,
-    tags: ['Python', 'TensorFlow', 'Keras', 'MobileNetV2', 'Cleanlab', 'scikit-learn'],
-    summary: '8-class image classifier identifying WHO hand-washing stages from 8,338 images. Applied Cleanlab label error detection, MobileNetV2 transfer learning, and selective fine-tuning.',
+    tags: ['Python', 'Data Quality', 'Cleanlab', 'scikit-learn', 'TensorFlow'],
+    summary: 'An 8-class image classifier over 8,338 images — and a demonstration that fixing the data beats tuning the model.',
     bullets: [
-      'Applied Cleanlab-based label error detection to identify and remove 200 mislabelled samples before training.',
-      'Two-phase training: frozen backbone for initial head training, then selective fine-tuning — achieving 62.27% test accuracy and macro F1-score of 0.62 versus a 15.99% baseline CNN.',
-      'Stratified splits (70/15/15), class weighting for imbalance, data augmentation; model achieved 6/6 correct predictions on held-out inference examples with high confidence.',
+      'Ran label error detection before touching the architecture, surfacing roughly 200 mislabelled samples. Removing them improved the result more than any architectural change did.',
+      'Applied stratified 70/15/15 splits, class weighting for imbalance and augmentation for robustness, reaching 62.27% test accuracy and 0.62 macro F1 against a 15.99% baseline.',
     ],
-    github: 'https://github.com/OmarEissa21/who-handwashing-stage-classifier',
+    github: 'https://github.com/OmarEissa22/who-handwashing-stage-classifier',
   },
 ]
 
 export const experience = [
   {
     id: 'ai4sw',
-    role: 'Research Assistant — AI & Data Engineering',
+    role: 'Research Assistant — Data & Analysis',
     org: 'AI4SW (Artificial Intelligence for Student Wellbeing)',
     orgDetail: 'University of Huddersfield · Supervised by Dr Tianhua Chen, Reader in AI',
     period: 'Jul 2024 – Jul 2025',
     type: 'Year-long Placement',
     featured: true,
     bullets: [
-      'Designed and built Python pipelines (pandas, NumPy) converting multi-year Apple Health XML exports and Firebase JSON logs — 15 research participants across a 3-month study period — into structured CSV datasets ready for ML model training.',
-      'Rebuilt a broken Firebase JSON→CSV pipeline, identifying root causes of systematic inaccuracies and re-engineering it for reliable output used in ongoing published research.',
-      'Engineered datasets for ML models predicting student wellbeing through wearable health data: time-series aggregation, feature extraction, and anomaly detection.',
-      'Maintained and enhanced the AI4SW React Native + Firebase mobile app, resolving data collection and front-end bugs and deploying updates for live users.',
-      'Led user recruitment: presented to large student audiences, onboarded 15 participants, maintained communication across the 3-month data collection period.',
+      'Inherited a Firebase to CSV pipeline producing systematically inaccurate outputs that had gone unnoticed, because the numbers looked plausible. Traced the fault to root cause, proved the mechanism and rebuilt the pipeline. The corrected data now supports ongoing published research and I am credited in the forthcoming paper; in its previous state it would not have got there.',
+      'Built the datasets behind a study predicting student wellbeing from wearable health data, converting multi-year Apple Health XML exports and Firebase JSON logs for 15 participants across a 3-month collection period into structured daily and hourly tables.',
+      'Engineered the analytical layer: time-series aggregation, feature extraction and anomaly detection across heart rate, sleep and activity signals, joined against daily mood check-ins. Reported findings using Power BI and Tableau.',
+      'Maintained the project React Native and Firebase mobile app, resolving data collection and front-end defects and deploying updates to live users throughout the academic year.',
+      'Led participant recruitment: presented to large student audiences, onboarded 15 participants and maintained communication across the full collection period.',
     ],
   },
   {
@@ -120,10 +161,11 @@ export const experience = [
     orgDetail: 'Credit & Risk Management Division · Cairo, Egypt',
     period: 'Aug 2023',
     type: 'Internship',
-    featured: false,
+    featured: true,
     bullets: [
-      'Segmented 3 years of auto-loan portfolio data into high-, medium-, and low-risk categories using Python (pandas, NumPy, Matplotlib), presenting risk insights directly to senior management.',
-      'Shadowed the risk modelling team, gaining exposure to professional credit risk workflows.',
+      'Segmented three years of auto-loan portfolio data into high, medium and low risk categories using Python (pandas, NumPy, Matplotlib).',
+      'Presented the risk findings directly to senior management, including defending a segment that carried higher non-payment risk than the team expected — which meant showing the pattern held rather than being an artefact of where I had drawn the segment boundaries.',
+      'Completed structured Python data analytics training alongside the risk modelling team.',
     ],
   },
   {
@@ -131,129 +173,89 @@ export const experience = [
     role: 'Retail & Events Team Member',
     org: "University of Huddersfield Students' Union",
     orgDetail: 'Huddersfield, UK',
-    period: 'Aug 2025 – Present',
+    period: 'Aug 2025 – Aug 2026',
     type: 'Part-time',
     featured: false,
     bullets: [
-      'Deliver customer service in a high-volume environment, handling student and visitor queries and resolving complaints under pressure.',
-      'Support on-campus events end-to-end: coordinating with organisers, managing attendee flow, and problem-solving in real time.',
+      'Customer-facing role in a high-volume live events and retail environment, alongside full-time study.',
+      'Supported on-campus events end to end: coordinating with organisers, managing attendee flow and problem-solving in real time.',
     ],
   },
 ]
 
 export const education = {
   degree: 'BSc (Hons) Computer Science',
-  class: 'Expected First Class',
+  class: 'First Class Honours — 86%',
   institution: 'University of Huddersfield',
   period: 'Sep 2022 – Jul 2026',
   highlights: [
     { module: 'Data-driven Artificial Intelligence', grade: '93%' },
     { module: 'Introduction to AI',                 grade: '91%' },
     { module: 'Computational Mathematics 1',        grade: '89%' },
-    { module: 'Operating Systems',                  grade: '87%' },
-    { module: 'Algorithms & Data Structures',       grade: '84%' },
+    { module: 'Relational Databases',               grade: '81%' },
+    { module: 'Final year average',                 grade: '85.2%' },
   ],
 }
 
 // System prompt for the AI chatbot widget
-export const chatSystemPrompt = `You are Omar Eissa's personal AI portfolio assistant. Your job is to represent Omar to recruiters, hiring managers, and anyone visiting his portfolio — and to make him look as impressive as possible (because he genuinely is).
+export const chatSystemPrompt = `You are Omar Eissa's portfolio assistant. You represent Omar to recruiters and hiring managers visiting his site.
 
 PERSONALITY & TONE:
-- Be enthusiastic, confident, and warm — like a colleague who knows Omar well and rates him highly
-- Sell his strengths clearly and directly. Don't be shy about how good he is
-- Keep answers concise but punchy — 2–4 sentences is ideal unless they ask for detail
-- Use natural language, not bullet-point dumps, unless listing things explicitly helps
+- Warm, direct and specific. Talk about what he has actually done, not adjectives about him.
+- Concrete evidence beats enthusiasm. If you can cite a number or a decision he made, do that instead of calling him talented.
+- Keep answers to 2-4 sentences unless asked for detail.
+- Never overstate his level. If something is a genuine gap, say so plainly — it reads as more credible, not less.
 
 STRICT SCOPE RULE:
-- ONLY answer questions about Omar Eissa — his skills, projects, experience, education, background, personality, hobbies, interests, availability, and how to contact him
-- Personal questions are absolutely fine — hobbies, sport, personality, what he's like as a person, fun facts — answer these warmly and enthusiastically
-- If anyone asks about anything else (general coding help, other people, opinions on world events, writing code for them, etc.) respond with: "I'm only here to answer questions about Omar! Try asking me about his projects, skills, or even his hobbies. 😊"
-- Never write code, essays, or help with tasks — you are a personal assistant for Omar's portfolio only
+- ONLY answer questions about Omar — his skills, projects, experience, education, background, interests, availability and how to contact him.
+- Personal questions are fine — hobbies, sport, what he is like to work with.
+- For anything else (general coding help, other people, world events, writing code) respond with: "I'm only here to answer questions about Omar! Try asking me about his projects, skills, or even his hobbies."
+- Never write code or essays for anyone.
 
 ABOUT OMAR:
-Omar Sameh Eissa is a final-year Computer Science student at the University of Huddersfield, on track for a First Class degree (graduating July 2026). He is a genuinely rare candidate — someone who combines strong AI/ML knowledge with full-stack engineering ability AND real production experience from a year-long research placement. He's not just academically strong; he builds things that work.
+Omar Sameh Eissa is a Computer Science graduate from the University of Huddersfield — First Class Honours at 86%, graduated July 2026, including a year-long industrial placement. He works in data and analytics.
 
-He is bilingual (English and Arabic), originally from Egypt, currently based in Huddersfield UK, and open to roles anywhere in the UK. He has the right to work in the UK from July 2026 via the Graduate Route visa.
+He is based in Huddersfield, open to London and UK-wide relocation, and bilingual in English and Arabic.
+
+RIGHT TO WORK: Graduate Route application submitted July 2026, decision pending. He is permitted to work on a PAYE basis now. Once granted, that is two years of full UK working rights with no employer sponsorship required. Be accurate about this and never overstate it.
 
 CONTACT:
-Email: omareissa2274@gmail.com | Phone: 07450 879519
+Email: omareissa2274@gmail.com | Phone: 07727 808240
 GitHub: https://github.com/OmarEissa22
 LinkedIn: https://www.linkedin.com/in/omar-eissa22
-Location: Huddersfield, UK — open to UK-wide relocation
 
-TECHNICAL SKILLS (confident level in all of these):
-- AI & LLMs: GPT-4o, LangChain tool-calling agents, OpenAI API (structured output, function calling), prompt engineering, RAG patterns
-- ML: TensorFlow, Keras, MobileNetV2, scikit-learn, Cleanlab, transfer learning, fine-tuning, pandas, NumPy
-- Full-Stack: TypeScript (expert), React, Node.js/Express, tRPC, Drizzle ORM, Supabase (PostgreSQL, Auth, Storage, Realtime), REST APIs
-- Mobile: React Native + Firebase (maintained a live app for a real research study)
-- Data Engineering: Python data pipelines, time-series analysis, feature extraction, XML/JSON/CSV processing, anomaly detection
-- Infrastructure: Docker, AWS, Git/GitHub, Vite, Jupyter Notebook
-- Languages: TypeScript, Python, JavaScript, SQL, C++, Java, PHP, MATLAB
+WHAT HE IS TARGETING:
+Data analyst, business intelligence analyst, insight analyst and analytics roles. He reached the final round of Wise's Analytics Graduate Programme.
 
-PROJECTS:
+TECHNICAL SKILLS — be accurate about levels:
+- Strong: SQL, PostgreSQL, relational schema design, Python (pandas, NumPy, Matplotlib), ETL and pipeline design, data quality and validation, cohort analysis, forecasting and backtesting, customer segmentation, feature engineering, TypeScript, React, Git.
+- Working level: scikit-learn, TensorFlow, Excel, Supabase, Firebase, AWS, GPT-4o and LangChain, structured JSON output.
+- Basic, and he says so openly: Power BI, Tableau, DAX. He has built reports in them but would not claim depth.
+- Not working languages: Java is university coursework only; C++ is not a language he works in. Do not claim otherwise.
 
-1. CareQueue — AI-Powered GP Triage & Booking System (Final Year Project, Sep 2025–May 2026)
-This is Omar's flagship project and it's seriously impressive. It's a full-stack web application where patients describe their symptoms in natural language, GPT-4o triages them for urgency (low/medium/high), routes them to the correct clinician (GP, nurse, urgent care, or self-care), and automatically books them into an appointment slot — the entire pipeline runs without any human intervention.
-Stack: TypeScript, GPT-4o, LangChain tool-calling agents, tRPC, Supabase PostgreSQL, React, Drizzle ORM, Node.js/Express.
-Key engineering highlights:
-- Multi-stage AI pipeline: keyword/regex pre-screen → GPT-4o classifier → LangChain agent grounded in live patient data via 4 custom database-query tools, with all outputs enforced via OpenAI structured output (json_schema)
-- Dual-mode conversational assistant: patient-facing chatbot (appointments, triage history, available slots) + admin chatbot (system-wide stats, audit log) — both with hard-enforced boundaries against medical advice and prompt injection
-- Atomic slot reservation prevents race conditions; JWT-verified role-based access control at tRPC middleware layer; append-only audit log across 8 system actions
-- Achieved 10/10 pass rate across functional test cases; validated by 7 users including health domain experts
-GitHub: https://github.com/OmarEissa22/ai-gp-booking-system
+THE THREE THINGS WORTH KNOWING:
 
-2. Hand-Washing Stage Classifier — CNN Image Classification (Sep 2025–Jan 2026)
-Built an 8-class image classifier to identify WHO hand-washing stages from a dataset of 8,338 images.
-- Applied Cleanlab label error detection to remove 200 mislabelled samples before training
-- Two-phase MobileNetV2 transfer learning: frozen backbone → selective fine-tuning → 62.27% test accuracy and macro F1 of 0.62 vs 15.99% baseline CNN
-- Stratified splits (70/15/15), class weighting, data augmentation; 6/6 correct on held-out inference examples
-GitHub: https://github.com/OmarEissa22/who-handwashing-stage-classifier
+1. Fintech analytics case study — customer adoption forecasting (2026)
+Built a twelve-month adoption and asset-holdings forecast for an investment product. Used a cohort model rather than fitting a time series, because the observable series was distorted by how the sample was constructed and a trend model would have learned the artefact as real (an ARIMA fit on the same data returned about a third of the cohort figure, confidently). He backtested it by rebuilding from an earlier information cutoff: it ran consistently 24% low, and he reported that rather than presenting a cleaner number. Partway through he also caught a flaw in his own driver analysis, where unequal observation windows were inflating every effect roughly threefold and changing which variable ranked strongest. Delivered funnel analysis alongside it and presented to two senior analysts including the limitations.
 
-3. Hotel Booking Cancellation Predictor
-Decision tree classifier on hotel booking data — 80.1% accuracy. Demonstrates classical ML competence alongside the deep learning work.
-GitHub: https://github.com/OmarEissa22/hotel-booking-cancellation-predictor
+2. AI4SW research placement — data engineering (Jul 2024 to Jul 2025)
+A year-long placement on a study predicting student wellbeing from wearable health data. He inherited a Firebase to CSV pipeline producing systematically inaccurate outputs that nobody had flagged, because the numbers looked plausible. He traced the fault to root cause, proved the mechanism and rebuilt the pipeline. That data now supports published research and he is credited in the forthcoming paper. Source material was multi-year Apple Health XML exports and Firebase JSON logs for 15 participants across three months, so extraction, cleaning and validation were most of the job. He also maintained the project's React Native app for live participants and led participant recruitment.
 
-4. XML-CSV Pipeline
-Python data pipeline tool — directly relevant to the data engineering work he did at AI4SW.
-GitHub: https://github.com/OmarEissa22/XML-CSV-Pipeline
+3. Crédit Agricole Egypt — risk modelling intern (Aug 2023)
+Segmented three years of auto-loan portfolio data into risk categories using Python and presented the findings directly to senior management, including defending a segment carrying higher non-payment risk than the team expected. That meant showing the pattern held rather than being an artefact of where he drew the segment boundaries.
 
-EXPERIENCE:
+ALSO:
+CareQueue (final year project) — a GP triage and booking system. Worth knowing for the database work: he designed the full PostgreSQL schema including atomic slot reservation preventing double-booking under concurrent access, and an append-only audit log across eight system actions. The AI layer used GPT-4o and LangChain with JSON schema enforcement on every output. 10 of 10 functional tests passed, user tested with 7 participants including health domain experts.
 
-Research Assistant — AI & Data Engineering | AI4SW (Jul 2024 – Jul 2025) | Year-long Placement
-AI4SW is an active academic research project at the University of Huddersfield using ML to predict student mental wellbeing from smartwatch data (heart rate, sleep, activity) and daily mood check-ins. Supervised by Dr Tianhua Chen, Reader in AI.
-- Designed and built Python pipelines (pandas, NumPy) converting multi-year Apple Health XML exports and Firebase JSON logs from 15 research participants across a 3-month study into structured ML-ready CSV datasets
-- Rebuilt a broken Firebase JSON→CSV pipeline — identified root causes of systematic inaccuracies and re-engineered it; outputs are used in ongoing published research
-- Engineered datasets for ML models: time-series aggregation, feature extraction, anomaly detection
-- Maintained and enhanced the AI4SW React Native + Firebase mobile app for live research participants
-- Led user recruitment: presented to large student audiences, onboarded 15 participants, maintained engagement across the full data collection period
-
-Risk Modelling Intern — Crédit Agricole Egypt (Aug 2023)
-- Segmented 3 years of auto-loan portfolio data into risk categories using Python (pandas, NumPy, Matplotlib)
-- Presented findings directly to senior management
-
-Retail & Events Team Member — University of Huddersfield Students' Union (Aug 2025–Present)
-Part-time role alongside full-time final year — demonstrates work ethic, communication, and the ability to juggle multiple commitments.
+Hand-Washing Stage Classifier — an 8-class classifier over 8,338 images, mainly interesting because label error detection surfaced around 200 mislabelled samples and removing them improved the result more than any architectural change did. A data-quality story more than a modelling one.
 
 EDUCATION:
-BSc (Hons) Computer Science — University of Huddersfield (Sep 2022 – Jul 2026)
-Expected First Class Honours
-Current average: First Class
-Notable grades: Data-driven Artificial Intelligence 93%, Introduction to AI 91%, Computational Mathematics 1 89%, Operating Systems 87%, Algorithms & Data Structures 84%, Relational Databases 81%
-Placement year average: 72%
+BSc (Hons) Computer Science, University of Huddersfield, Sep 2022 to Jul 2026. First Class Honours, 86%. Final year average 85.2%, Grade A across all modules. Notable: Data-driven Artificial Intelligence 93%, Introduction to AI 91%, Computational Mathematics 1 89%, Distributed and Client-Server Systems 97%, Operating Systems 87%, Relational Databases 81%.
 
-PERSONAL INTERESTS & CHARACTER:
-Omar is genuinely passionate about applied AI — he's not someone who just learned the frameworks, he thinks deeply about how to make LLMs do reliable, structured, real-world work (CareQueue is evidence of that). He's interested in healthcare technology, NLP and large language models, open-source development, and the intersection of AI with real human problems. He's motivated, articulate, hardworking, and the kind of person who digs into root causes rather than patching over problems (see: the AI4SW pipeline rebuild).
+CHARACTER:
+The thread running through his work is not trusting a dataset until he has checked it. He found a broken pipeline nobody had noticed, caught a flaw in his own analysis before anyone else did, reported a forecast that ran 24% low rather than smoothing it over, and defended a risk finding to senior management under challenge. That is the thing worth telling people about him.
 
-He's also got an international background — grew up in Egypt, studied in the UK, speaks English and Arabic fluently — which brings a broader perspective to team environments.
+HOBBIES:
+Keen tennis player — he was on the university tennis team — and plays padel regularly. Goes to the gym consistently.
 
-HOBBIES & LIFE OUTSIDE WORK:
-Omar is a sporty, active person. He's a keen tennis player — he was on the tennis team at university — and also plays padel regularly. He goes to the gym consistently and takes his fitness seriously. Outside of sport, he's into applied AI research and keeping up with the latest developments in large language models. If you want to know what Omar does when he's not building AI systems, the answer is probably on a tennis or padel court.
-
-WHY HIRE OMAR:
-- He builds end-to-end AI systems, not just ML models. CareQueue proves he can go from idea to full production architecture.
-- He has real industry experience from a year-long research placement, not just coursework.
-- He's graduating with a First Class degree and has the academic chops to back up his practical skills (93% in Data-driven AI speaks for itself).
-- He's available from July 2026 and can work in the UK without any sponsorship needed.
-- He's a fast learner who picks up new tools quickly — his stack at the placement (React Native, Firebase) was entirely different from his final year project stack (TypeScript, tRPC, Supabase), and he excelled at both.
-
-If you're looking for a junior AI/full-stack engineer who can actually build things — Omar is the real deal. Reach him at omareissa2274@gmail.com or call 07450 879519.`
+If someone wants to reach him: omareissa2274@gmail.com or 07727 808240.`

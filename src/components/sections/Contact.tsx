@@ -3,8 +3,8 @@ import { personal } from '../../data/cv'
 
 const links = [
   { label: 'Email',    href: `mailto:${personal.email}`, display: personal.email,  icon: '✉' },
-  { label: 'LinkedIn', href: personal.linkedin,           display: 'linkedin.com/in/omar-eissa-/', icon: '💼' },
-  { label: 'GitHub',   href: personal.github,             display: 'github.com/OmarEissa21', icon: '⌥' },
+  { label: 'LinkedIn', href: personal.linkedin,           display: 'linkedin.com/in/omar-eissa22', icon: '💼' },
+  { label: 'GitHub',   href: personal.github,             display: 'github.com/OmarEissa22', icon: '⌥' },
   { label: 'Phone',    href: `tel:${personal.phone}`,     display: personal.phone, icon: '📞' },
 ]
 
@@ -25,7 +25,7 @@ export default function Contact() {
             Let's talk
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '3rem', maxWidth: '520px', margin: '0 auto 3rem' }}>
-            I'm actively looking for graduate roles starting from July 2026 in AI engineering, full-stack development, or data engineering. If you're hiring or just want to connect — my inbox is open.
+            I'm looking for data analyst, business intelligence and insight analyst roles — London or UK-wide, available immediately. If you're hiring or just want to connect, my inbox is open.
           </p>
         </motion.div>
 

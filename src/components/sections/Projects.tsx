@@ -82,25 +82,27 @@ export default function Projects() {
                   </p>
                 </div>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    padding: '0.4rem 0.9rem',
-                    borderRadius: '6px',
-                    border: '1px solid var(--border-light)',
-                    color: 'var(--text-muted)',
-                    transition: 'border-color 0.2s, color 0.2s',
-                    whiteSpace: 'nowrap',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--text)' }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.color = 'var(--text-muted)' }}
-                >
-                  GitHub ↗
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.8rem',
+                      padding: '0.4rem 0.9rem',
+                      borderRadius: '6px',
+                      border: '1px solid var(--border-light)',
+                      color: 'var(--text-muted)',
+                      transition: 'border-color 0.2s, color 0.2s',
+                      whiteSpace: 'nowrap',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--text)' }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.color = 'var(--text-muted)' }}
+                  >
+                    GitHub ↗
+                  </a>
+                )}
               </div>
 
               {/* Summary */}

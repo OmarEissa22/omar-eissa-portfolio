@@ -132,7 +132,8 @@ export default function Hero() {
               {[
                 { hash: 'a3f2c9e', time: '22 yrs ago', msg: 'initialized: Cairo, Egypt 🇪🇬', delay: 0.9 },
                 { hash: 'b8d4f1c', time: '2022',       msg: 'enrolled: BSc CS @ Huddersfield 🎓', delay: 1.05 },
-                { hash: 'e7c2a08', time: 'present',    msg: 'graduation pending... building AI in the meantime ⚡', delay: 1.2 },
+                { hash: 'c4e9d17', time: 'Jul 2026',   msg: 'merged: First Class Honours, 86% ✅', delay: 1.2 },
+                { hash: 'e7c2a08', time: 'present',    msg: 'open to data analyst roles — London & UK 📊', delay: 1.35 },
               ].map(line => (
                 <motion.div
                   key={line.hash}

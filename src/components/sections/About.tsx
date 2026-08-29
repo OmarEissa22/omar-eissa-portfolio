@@ -4,11 +4,11 @@ import { bio, skills, education, type Skill } from '../../data/cv'
 import { useIsMobile } from '../../hooks/useIsMobile'
 
 const categoryColors: Record<Skill['category'], { bg: string; border: string; text: string; label: string }> = {
-  ai:       { bg: 'rgba(37,99,235,0.12)',   border: 'rgba(37,99,235,0.4)',   text: '#60A5FA', label: 'AI & ML' },
-  frontend: { bg: 'rgba(16,185,129,0.10)',  border: 'rgba(16,185,129,0.35)', text: '#34D399', label: 'Frontend' },
-  backend:  { bg: 'rgba(168,85,247,0.10)',  border: 'rgba(168,85,247,0.35)', text: '#C084FC', label: 'Backend' },
-  data:     { bg: 'rgba(245,158,11,0.10)',  border: 'rgba(245,158,11,0.35)', text: '#FCD34D', label: 'Data Eng' },
-  infra:    { bg: 'rgba(239,68,68,0.10)',   border: 'rgba(239,68,68,0.35)',  text: '#F87171', label: 'Infra' },
+  sql:         { bg: 'rgba(37,99,235,0.12)',  border: 'rgba(37,99,235,0.4)',   text: '#60A5FA', label: 'SQL & Databases' },
+  analysis:    { bg: 'rgba(16,185,129,0.10)', border: 'rgba(16,185,129,0.35)', text: '#34D399', label: 'Analysis & Stats' },
+  viz:         { bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.35)', text: '#FCD34D', label: 'Reporting & Viz' },
+  engineering: { bg: 'rgba(168,85,247,0.10)', border: 'rgba(168,85,247,0.35)', text: '#C084FC', label: 'Data Engineering' },
+  other:       { bg: 'rgba(239,68,68,0.10)',  border: 'rgba(239,68,68,0.35)',  text: '#F87171', label: 'Other Tools' },
 }
 
 const containerVariants = {
