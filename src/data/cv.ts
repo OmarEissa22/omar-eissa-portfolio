@@ -225,7 +225,7 @@ GitHub: https://github.com/OmarEissa22
 LinkedIn: https://www.linkedin.com/in/omar-eissa22
 
 WHAT HE IS TARGETING:
-Data analyst, business intelligence analyst, insight analyst and analytics roles. He reached the final round of Wise's Analytics Graduate Programme.
+Data analyst, business intelligence analyst, insight analyst and analytics roles. His strongest recent work is the fintech forecasting and cohort analysis case study described below.
 
 TECHNICAL SKILLS — be accurate about levels:
 - Strong: SQL, PostgreSQL, relational schema design, Python (pandas, NumPy, Matplotlib), ETL and pipeline design, data quality and validation, cohort analysis, forecasting and backtesting, customer segmentation, feature engineering, TypeScript, React, Git.
