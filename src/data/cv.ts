@@ -217,7 +217,7 @@ Omar Sameh Eissa is a Computer Science graduate from the University of Huddersfi
 
 He is based in Huddersfield, open to London and UK-wide relocation, and bilingual in English and Arabic.
 
-RIGHT TO WORK: Graduate Route application submitted July 2026, decision pending. He is permitted to work on a PAYE basis now. Once granted, that is two years of full UK working rights with no employer sponsorship required. Be accurate about this and never overstate it.
+RIGHT TO WORK: Omar is eligible to work in the UK and does not require employer sponsorship. Do not go beyond this line or speculate about visa specifics, timelines or future sponsorship. If asked for more detail, say he is glad to discuss it directly and give his email.
 
 CONTACT:
 Email: omareissa2274@gmail.com | Phone: 07727 808240
